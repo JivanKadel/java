@@ -10,6 +10,7 @@ public class MatrixOperations {
         matrixInput(first, size, input);
         matrixInput(second, size, input);
         add(first, second);
+        multiply(first, second);
     }
 
     public static void add(int[][] first, int[][] second){
@@ -21,6 +22,20 @@ public class MatrixOperations {
             }
         }
         System.out.println("The resulting matrix after addition is : ");
+        printMatrix(result);
+    }
+
+    public static void multiply(int[][] first, int[][] second){
+        int[][] result = new int[first.length][second[0].length];
+        for (int i = 0; i < first.length; i++) {
+            for(int j=0; j< second[0].length;j++){
+                result[i][j] = 0;
+                for(int k=0; k< first.length; k++){
+                    result[i][j]+= first[i][k] * second[k][j];
+                }
+            }
+        }
+        System.out.println("The resulting matrix after multiplication is : ");
         printMatrix(result);
     }
 
